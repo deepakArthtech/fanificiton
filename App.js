@@ -1,32 +1,24 @@
- import React from 'react';
- import {
-  StyleSheet,
-  SafeAreaView,
-  StatusBar,
-  Platform,
-  View,
-} from 'react-native';
 
-import { TextInput as MaterialTextInput} from 'react-native-paper';
-import LogIn from './App/src/views/screens/LoginScreen';
- 
- 
+import 'react-native-gesture-handler';
+import React from 'react'
 
-const App = () => {
-  
+import NavigationSetup from  './src/Routes/NavigationSetup'
+import BookDetails from './src/Screens/BookDetails'
+import Holdings from './src/Screens/Holdings'
+import UploadBook from './src/Screens/UploadBook'
+import WriteBook from './src/Screens/UploadBook/Write'
+import DailyCheckIn from './src/Screens/DailyCheckIn';
+import TopUp from './src/Screens/ChoosePayment';
+import Menu from './src/Screens/Menu';
+import Notifications from './src/Screens/Notifications';
+import Genre from './src/Screens/Genre';
+import ChangeIntrest from './src/Screens/ChangeIntrest';
 
-  return (
-
-    <View>
-
-  
-
-    </View>
+const App =() => {
+  return(
+    // <ChangeIntrest/>
+    <NavigationSetup />
     
-    
-  );
-};
-
- 
-
-export default App;
+  )
+}
+export default App
