@@ -32,7 +32,7 @@ const LibraryNavigation = () => {
             tabStyle={{width:'auto',padding:0,marginRight:5}}
             labelStyle={{fontSize:10,fontWeight:'bold', }}
             inactiveColor={'Black'}
-            style={{marginLeft:5,  marginTop:-10,   backgroundColor: 'white', shadowOpacity:0,shadowRadius:0,shadowOffset:{height:0,width:0}}}
+            style={{marginLeft:5,   backgroundColor: 'white', shadowOpacity:0,shadowRadius:0,shadowOffset:{height:0,width:0}}}
         />
     );
 

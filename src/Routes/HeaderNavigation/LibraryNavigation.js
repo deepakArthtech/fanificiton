@@ -30,11 +30,11 @@ const LibraryNavigation = () => {
         <TabBar
             {...props}
             activeColor={appColors.primary}
-            indicatorStyle={{height:3, textDecorationLine:'underline', backgroundColor:appColors.primary}}           
+            indicatorStyle={{ textDecorationLine:'underline', backgroundColor:appColors.primary}}           
             tabStyle={{padding:0,marginRight:5}}
             labelStyle={{fontSize:16,fontWeight:'bold'}}
             inactiveColor={'Black'}
-            style={{width:"70%", marginTop:-10,backgroundColor:appColors.white}}
+            style={{backgroundColor:appColors.white, elevation:0, width:'70%', marginTop:10}}
         />
     );
 
@@ -48,6 +48,4 @@ const LibraryNavigation = () => {
         />
     )
 }
-
-
 export default LibraryNavigation

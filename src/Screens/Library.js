@@ -2,6 +2,7 @@ import React from 'react';
 import {Image, TextInput, View,StyleSheet,Text,FlatList,Dimensions} from 'react-native'
 
 import LibraryNavigation from '../Routes/HeaderNavigation/LibraryNavigation';
+import style from '../styles/style';
 import { appColors } from '../Utils/appColors';
 
 
@@ -19,16 +20,13 @@ function HomeScreen(){
     return(
         <View style={{flex:1,backgroundColor:appColors.white}}>
             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-start', marginHorizontal:20}}>
-            <View style={styles.textInputStyle}>
+            <View style={style.textInputStyle}>
                 <Image source = {require('../asserts/search_icon.png')} />
                 <TextInput placeholder="Search For Novel" style={{flex:1,marginLeft:10}}/>
             </View>
 
             </View>
-            <View style={{flexDirection:'row',marginVertical:10,marginHorizontal:20}}>
-               
-
-            </View>
+            
             <LibraryNavigation />
         </View>
     )
@@ -36,15 +34,7 @@ function HomeScreen(){
 
 
 const styles = StyleSheet.create({
-    textInputStyle:{
-        marginTop:30,
-        color:'black',
-        flexDirection:'row',
-        justifyContent:'center',
-        alignItems:'center',
-        paddingHorizontal:10,
-        flex:1
-      },
+    
       imageStyle:{
           height:windowHeight/3,
           width:windowWidth/3,

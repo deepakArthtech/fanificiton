@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native'
+import { borderRadius } from 'styled-system';
 import COLORS from '../color/Colors';
  
 
@@ -29,5 +30,17 @@ text: {
      paddingLeft:16,
      borderWidth:1,
 
- }
+ },
+
+ textInputStyle:{
+    marginTop:30,
+    color:'black',
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
+    paddingHorizontal:10,
+    backgroundColor:'#d9d9d9',
+    flex:1,
+    borderRadius:24
+  }
 });
