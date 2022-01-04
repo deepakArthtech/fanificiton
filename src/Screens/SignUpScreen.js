@@ -29,14 +29,14 @@ function SignUpScreen({navigation}){
           </View>
          
           <TouchableOpacity>
-          <Text  style={style.text}>Continue</Text>
+          <Text  style={style.text} onPress={()=>navigation.navigate('HomeScreen')}>Continue</Text>
             
           </TouchableOpacity>
 
 
           <View style={{flex:1, marginTop:20, flexDirection:'row'}}>
             <Text>Already have an account?</Text> 
-            <Text style={{marginLeft:10,  color:COLORS.chocklate }}>Login</Text>
+            <Text style={{marginLeft:10,  color:COLORS.chocklate }} onPress={()=>navigation.goBack()}>Login</Text>
           </View>
 
           <View style={{marginVertical:20, flex:1, flexDirection:'row', alignItems:'center'}}>
@@ -53,7 +53,6 @@ function SignUpScreen({navigation}){
           </View>
 
         </TouchableOpacity>
-
           <TouchableOpacity>
           <View style={style.btnsoical}>
             <Image style={{width:20, height:20}} source={require("../assests/icons/google.png")}/>

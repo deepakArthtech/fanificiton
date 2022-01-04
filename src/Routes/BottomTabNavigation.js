@@ -8,7 +8,9 @@ import { Image, SafeAreaView } from 'react-native'
 import Library from '../Screens/Library';
 import UploadBook from '../Screens/UploadBook';
 import { getIcon } from '../Utils/getIcon';
+import Plus from '../asserts/svgIcons/Plus'
 import UploadCover from '../Screens/UploadBook/UploadCover';
+import { appColors } from '../Utils/appColors';
 
 const Tab = createBottomTabNavigator()
 
@@ -88,9 +90,10 @@ const BottomTabNavigation = () => {
           options={{
             tabBarLabel:'',
             tabBarIcon: ({ focused, color, size }) => (
-              <Image source={getIcon('addBook')}
-              style={{height:60,width:60,marginBottom:20}}
-              />
+              <Plus size={20} fill={appColors.black} style={{marginBottom:10}}/>
+              // <Image source={getIcon('addBook')}
+              // style={{height:60,width:60,marginBottom:20}}
+              // />
             )
           }}
 

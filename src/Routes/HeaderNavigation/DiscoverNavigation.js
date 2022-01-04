@@ -43,7 +43,7 @@ const DiscoverNavigation = ({navigation}) => {
             tabStyle={{width:'auto'}}
             labelStyle={{fontSize:14,fontWeight:'bold', }}
             inactiveColor={'Black'}
-            style={{backgroundColor: 'white',elevation:0, shadowOpacity:0,shadowRadius:0,shadowOffset:{height:0,width:0}}}
+            style={{backgroundColor: 'white',elevation:0, shadowOpacity:0,shadowRadius:0, alignItem:'center', shadowOffset:{height:0,width:0}}}
         />
     );
 
