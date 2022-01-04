@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet} from 'react-native'
+import { paddingRight } from 'styled-system'
 import { appColors } from '../../Utils/appColors'
 
 const BookList = ({image,title,books,followers}) => {
@@ -7,9 +8,9 @@ const BookList = ({image,title,books,followers}) => {
     return(
         <View style={styles.container}>
             <Image style = {styles.imagestyle} source={image}/>
-            <View style={{margin:10}}>
+            <View style={{paddingTop:4, paddingLeft:16}}>
                 <Text style={styles.textStyle}>{title}</Text>
-                <View style={styles.container}>
+                <View style={{flexDirection:'row', marginTop:4}}>
                     <Text>{books} Books</Text>
                     <Text style={{marginHorizontal:10}}>{followers} Followers</Text>
                 </View>
@@ -24,26 +25,30 @@ const BookList = ({image,title,books,followers}) => {
 const styles = StyleSheet.create({
     container:{
         flexDirection:'row',
-        margin:10
+        margin:8,
+        paddingRight:16,
     },
     textStyle:{
         fontSize:14,
-        marginStart:10,
         fontWeight:'bold',
         color:appColors.black,
     },
     readTextStyle:{
         color:appColors.white,
         backgroundColor:appColors.primary,
-        paddingVertical:5,
+        paddingVertical:4,
         textAlign:'center',
-        width:100,
-        borderRadius:30
+        marginTop:4,
+        marginLeft:4,
+        alignSelf:'baseline',
+        paddingHorizontal:28,
+        borderRadius:24,
+        bottom:0,
     },
     imagestyle:{
-        height:100,
-        width:100,
-        borderRadius:10,
+        height:79,
+        width:79,
+        borderRadius:4,
     }
 })
 

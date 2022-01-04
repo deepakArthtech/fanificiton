@@ -38,9 +38,10 @@ text: {
     flexDirection:'row',
     justifyContent:'center',
     alignItems:'center',
-    paddingHorizontal:10,
-    backgroundColor:'#d9d9d9',
+    paddingHorizontal:10 ,
+    backgroundColor:'#F2F2F2',
     flex:1,
-    borderRadius:24
+    borderRadius:24,
+    height:40,
   }
 });

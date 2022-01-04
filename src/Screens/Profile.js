@@ -10,7 +10,6 @@ function Profile({ navigation }){
         
         <View style={styles.topContainer}>
             <ScrollView>
-            {/* <BackButton/> */}
             <View style={styles.roundImageView}>
                 <RoundImage/>
                 <Text style={{fontSize:24,marginVertical:20,fontWeight:'bold'}}> John Doe</Text>

@@ -3,6 +3,7 @@
 import * as React from "react";
 import { View, useWindowDimensions, Dimensions, StyleSheet } from 'react-native';
 import { TabView,TabBar, SceneMap } from 'react-native-tab-view';
+import COLORS from "../../color/Colors";
 import Discover from '../../Screens/Discover/Discover/Discover'
 import Featured from '../../Screens/Discover/Featured/Featured'
 import New from '../../Screens/Discover/New/New'
@@ -38,11 +39,11 @@ const DiscoverNavigation = ({navigation}) => {
         <TabBar
             {...props}
             activeColor={'#640000'}
-            indicatorStyle={{height:3,paddingRight:32, textDecorationLine:'underline', backgroundColor:'none'}}           
-            tabStyle={{width:'auto',padding:0,marginRight:32}}
+            indicatorStyle={{ textDecorationLine:'underline', backgroundColor:COLORS.chocklate}}           
+            tabStyle={{width:'auto'}}
             labelStyle={{fontSize:14,fontWeight:'bold', }}
             inactiveColor={'Black'}
-            style={{backgroundColor: 'white', shadowOpacity:0,shadowRadius:0,shadowOffset:{height:0,width:0}}}
+            style={{backgroundColor: 'white',elevation:0, shadowOpacity:0,shadowRadius:0,shadowOffset:{height:0,width:0}}}
         />
     );
 

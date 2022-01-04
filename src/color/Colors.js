@@ -7,6 +7,7 @@ const COLORS = {
     pink: '#FF2D5F',
     chocklate: '#640000',
     gray:'#808080',
+    lightGray:'#C4C4C4',
 
     }
     

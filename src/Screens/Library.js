@@ -32,7 +32,6 @@ function HomeScreen(){
     )
 }
 
-
 const styles = StyleSheet.create({
     
       imageStyle:{

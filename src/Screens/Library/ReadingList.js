@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, FlatList, Image, TouchableOpacity, StyleSheet, Text, Dimensions } from 'react-native'
+import COLORS from '../../color/Colors';
 import BookList from '../../Component/ReadingListComp/BookList';
 import MyListComp from '../../Component/ReadingListComp/MyListComp';
 import { appColors } from '../../Utils/appColors';
@@ -9,10 +10,10 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const data = [
-  {id:1,title:"Harry Porter",books:"90",followers:"1200",image:require('../../asserts/harry_porter.png')},
-  {id:2,title:"Harry Porter",books:"90",followers:"1200",image:require('../../asserts/harry_porter.png')},
-  {id:3,title:"Harry Porter",books:"90",followers:"1200",image:require('../../asserts/harry_porter.png')},
-  {id:4,title:"Harry Porter",books:"90",followers:"1200",image:require('../../asserts/harry_porter.png')}
+  {id:1,title:"Harry Porter",books:"90",followers:"120",image:require('../../asserts/harry_porter.png')},
+  {id:2,title:"Harry Porter",books:"100",followers:"1300",image:require('../../asserts/harry_porter.png')},
+  {id:3,title:"Harry Porter",books:"72",followers:"1223",image:require('../../asserts/harry_porter.png')},
+  {id:4,title:"Harry Porter",books:"81",followers:"1200",image:require('../../asserts/harry_porter.png')}
 ]
 
 const my_data = [
@@ -35,7 +36,7 @@ const ReadingList = () => {
 
       <View style={styles.row_flex}>
         <Image source={require('../../asserts/options.png')}/>
-        <Text style={styles.text_style}>Find More Reading List</Text>
+        <Text style={{marginLeft:8, color:COLORS.black, fontWeight:'bold', fontSize:14}}>Find More Reading List</Text>
       </View>
      
       <View style={styles.row_flex}>
@@ -53,8 +54,6 @@ const ReadingList = () => {
        data={my_data}
        keyExtractor={item=>item.id}
        renderItem={({item})=><MyListComp image={item.image} title={item.title} books={item.books} views={item.views} followers={item.followers}  shareImage={item.share_image} share_text={item.share_text}/>}/>
-
-
     </View>
   )
 }
@@ -81,12 +80,11 @@ const styles = StyleSheet.create({
   text_style:{
     fontSize:16,
     fontWeight:'bold',
-    marginHorizontal:10,
     flex:1
   },
   row_flex:{
     flexDirection:'row',
-    margin:10,
+    margin:16,
     alignItems:'center'
   }
 })
