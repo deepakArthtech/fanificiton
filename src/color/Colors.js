@@ -8,6 +8,7 @@ const COLORS = {
     chocklate: '#640000',
     gray:'#808080',
     lightGray:'#C4C4C4',
+    light_chocklate:'#f0e6e6',
 
     }
     

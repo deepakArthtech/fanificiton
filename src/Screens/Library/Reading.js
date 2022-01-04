@@ -15,9 +15,10 @@ const windowHeight = Dimensions.get('window').height;
 
 function Reading  ()  {
     return (
-        <View style={{flex:1}}>
+        <View>
                  <FlatList
                      horizontal
+                     showsHorizontalScrollIndicator ={false}
                      data={data}
                      keyExtractor={item=>item.id}
                      renderItem={({item})=>(
