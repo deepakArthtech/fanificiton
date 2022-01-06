@@ -14,6 +14,8 @@ import COLORS from '../color/Colors';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
+
+
   const renderScene = ({ route, jumpTo }) => {
     switch (route.key) {
       case 'romance':
@@ -36,6 +38,10 @@ const windowHeight = Dimensions.get('window').height;
 const Genre = () => {
 
     const [index, setIndex] = React.useState(0);
+    const [status, setStatus] = React.useState("romance");
+    const setStatusFilter = status => {
+      setStatus(status)
+    }
     const [routes] = React.useState([
       { key: 'romance', title: 'Romance' },
       { key: 'crime', title: 'Crime' },
@@ -46,25 +52,28 @@ const Genre = () => {
     ]);
 
     const renderTabBar = props => (
+             
+
             <TabBar
-                {...props}
-                scrollEnabled={true}
-                activeColor={appColors.primary}
-                indicatorStyle={{textDecorationLine:'underline', backgroundColor:'none'}}           
-                tabStyle={{width:100,margin:5,height:5,alignItems:'center',backgroundColor:appColors.lightGray,
-                   borderRadius:30}}
-                labelStyle={{fontSize:12,fontWeight:'bold', }}
-                inactiveColor={'Black'}
-                style={{backgroundColor:appColors.white,height:30,
-                justifyContent:'center',alignItems:'center',}}
-            />
+            {...props}
+            activeColor={'#ffffff'}
+            scrollEnabled={true}
+            pressColor='transparent'
+          
+            indicatorStyle={{ textDecorationLine:'underline', backgroundColor:'none'}}           
+            tabStyle={styles.styleTabInactive, status==routes.key  && styles.styleTabInactive} 
+            onTabPress={setStatusFilter(routes.key)}
+            labelStyle={{fontSize:14,fontWeight:'bold', }}
+            inactiveColor={'Black'}
+            style={{backgroundColor: 'white', elevation:0,  shadowOpacity:0,shadowRadius:0, alignItem:'center', shadowOffset:{height:0,width:0}}}
+        />
     );
 
     return (
 
       <View style={{ flex: 1, backgroundColor:COLORS.white }}>
 
-      <View style ={{flexDirection:'row', alignContent:'center', alignItems:'center', marginTop:30, marginHorizontal:16}}>
+      <View style ={{flexDirection:'row', alignContent:'center', alignItems:'center', marginTop:30, marginHorizontal:16, marginBottom:16}}>
                 <View  style={styles.textInputStyle}>
                     <Image source={require('../asserts/search_icon.png')} />
                     <TextInput placeholder="Search for novel" style={{ flex: 1, marginLeft: 10 }} />
@@ -98,6 +107,21 @@ const styles = StyleSheet.create({
       height: windowHeight / 3,
       width: windowWidth / 3,
       borderRadius: 10
+  },
+  styleTab:{
+    width:'auto',
+    margin:5,
+     borderRadius:32,
+      paddingHorizontal:16, 
+      backgroundColor:appColors.lightGray
+  },
+
+  styleTabInactive:{
+    width:'auto',
+    margin:5,
+    borderRadius:32,
+    paddingHorizontal:16, 
+    backgroundColor:COLORS.chocklate
   }
 });
 

@@ -10,10 +10,9 @@ import RadioGroup from 'react-native-radio-buttons-group';
 
 
 var radioButtonsData = [
-    {id:1,label: 'New', value: 0 },
-    {id:1,label: 'Ratings', value: 1 },
-    {id:1,label: 'New', value: 2 }
-  ];
+    {id:1,label: 'New', value: 0 ,  color:COLORS.chocklate,},
+    {id:2,label: 'Ratings', value: 1 , color:COLORS.chocklate },
+    {id:3,label: 'New', value: 2 , color:COLORS.chocklate,alignSelf:'flex-start'}];
 
   const interestList = ['Romance', 'Action', 'Mystery', 'War', 'Fantasy', 'Supernatural'];
 
@@ -24,32 +23,34 @@ const ChangeIntrest = ({navigation}) => {
         setRadioButtons(radioButtonsArray);
     }
     return (
-        <View style={{flex:1}}>
-           <Container>
+        <View style={{flex:1, padding:20}}>
             {/* <CustomHeader onBackPress={()=>navigation.goBack()}/> */}
 
-            <Text style={{alignSelf:'flex-end', color:COLORS.black, fontSize:16}}>RESET</Text>
-                <Text>Sort by</Text>
-                <RadioGroup 
+            <Text style={{alignSelf:'flex-end', color:COLORS.black, fontSize:16, fontWeight:'600'}}>RESET</Text>
+                <Text style={{fontWeight:'600'}}>Sort by</Text>
+                 <View style={{alignSelf:'flex-start', marginTop:8}}>
+                 <RadioGroup style={{alignItems:'start'}}
                 radioButtons={radioButtons} 
+                borderColor={COLORS.chocklate}
                 onPress={onPressRadioButton} />
-                <View style={{borderTopColor:appColors.black,borderTopWidth:1,padding:10}}>
-                    <Text>Refine by Tags</Text>
+                 </View>
+                <View style={{borderTopColor:appColors.black,borderTopWidth:1,marginVertical:10}}/>
+                    <Text style={{fontWeight:'600'}}>Refine by Tags</Text>
 
-                    <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',marginTop:20}}>
+                    <View style={{flexDirection:'row',alignItems:'center',flexWrap:'wrap',marginTop:20}}>
                         {
                              
                             interestList.map((ind)=>{
                                 return(
-                                    <TouchableOpacity key={ind} style={{height:40,width:100,backgroundColor:appColors.borderColor,margin:5,alignItems:'center',justifyContent:'center',borderRadius:30,}}>
-                                        <Text style={{color:appColors.primary,fontWeight:'600'}}>{ind}</Text>
+                                    <TouchableOpacity key={ind} style={{ paddingHorizontal:16,paddingVertical:8,backgroundColor:'#f0e6e6',margin:5,alignItems:'center',justifyContent:'center',borderRadius:30,}}>
+                                        <Text style={{color:COLORS.chocklate,fontWeight:'600'}}>{ind}</Text>
                                     </TouchableOpacity>
                                 )
                             })
                         }
                     </View>
-                </View>
-           </Container>
+                
+        
         </View>
     )
 }

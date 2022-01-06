@@ -41,6 +41,8 @@ function Login({navigation}){
             <Text style={{marginLeft:10,  color:COLORS.chocklate }} onPress={()=> navigation.navigate('SignUp')}>Sign up</Text>
           </View>
 
+         
+
           <View style={{marginVertical:20, flex:1, flexDirection:'row', alignItems:'center'}}>
                <View style={style.line}/>
                <Text style={{marginHorizontal:16}}>OR</Text>

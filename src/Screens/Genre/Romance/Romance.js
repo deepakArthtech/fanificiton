@@ -1,8 +1,11 @@
 import React from 'react'
 import { Image, Text, View, StyleSheet, FlatList, Dimensions, StatusBar ,SafeAreaView, TouchableOpacity} from 'react-native'
+import { IconButton } from 'react-native-paper';
 import { flexShrink } from 'styled-system';
+import COLORS from '../../../color/Colors';
 import { appColors } from '../../../Utils/appColors';
 import { data } from '../../../Utils/MokeData';
+import { Rating, AirbnbRating } from 'react-native-ratings';
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -11,7 +14,7 @@ const windowHeight = Dimensions.get('window').height;
 const Romance = () => {
     return (
         <SafeAreaView style={styles.container}>  
-                <View style={{backgroundColor:appColors.white,paddingTop:10}}>
+                <View style={{backgroundColor:appColors.white }}>
                     <FlatList
                         data={data}
                         renderItem={({ item }) => (
@@ -19,11 +22,20 @@ const Romance = () => {
                                 <Image source={require('../../../asserts/harry_porter.png')} style={styles.imageStyle} />
                                 <View style={{ marginLeft: 10,width:'60%',}}>
                                     <View style={{ flexDirection: 'row', justifyContent: 'flex-start', }}>
-                                        <Text style={{ marginRight: 20, fontWeight: 'bold' }}>Coming</Text>
+                                        <Text style={{ marginRight: 20, fontWeight: 'bold' }}>Shoe Dog</Text>
                                         <Text>By Michelle Obama</Text>
                                     </View>
-                                    <Text style={{ marginTop: 20,height:60 }}
-                                    >
+
+                                    <View style={{flexDirection:'row', alignItems:'center', marginVertical:8}}>
+                                    <Image source={require('../../../asserts/eye_red.png')} style={{width:16, height:16}}/>
+
+                                    <Text > 4.5M</Text>
+
+                                    <Rating type='star' readonly={true} ratingCount={5} imageSize={12} style={{marginHorizontal:8}}/>
+ 
+                                    <Text > 4.5/5</Text>
+                                    </View>
+                                    <Text>
                                         An intimate, powerful, and inspiring
                                         memoir by the former First Lady of
                                         the United States, now a No.1 Sunday
@@ -62,9 +74,9 @@ const styles = StyleSheet.create({
         backgroundColor:appColors.white
       },
     imageStyle: {
-        height: windowHeight / 3.5,
+        height: 160,
         width: windowHeight / 6.5,
-        borderRadius: 10,
+        borderRadius: 4,
 
 
 
@@ -87,47 +99,4 @@ const styles = StyleSheet.create({
 
 export default Romance
 
-// <View style={{ borderColor: '#e6e6e6', marginVertical: 10, borderWidth: 1, marginHorizontal: 20 }}></View>
-// <FlatList
-//     data={data}
-//     renderItem={({ item }) => (
-//         <View style={{ flexDirection: 'row' ,marginHorizontal:10 }}>
-//             <Image source={require('../../../asserts/harry_porter.png')} style={styles.imageStyle} />
-//             <View style={{ marginLeft: 10 }}>
-//                 <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-//                     <Text style={{ marginRight: 20, fontWeight: 'bold' }}>Coming</Text>
-//                     <Text>By Michelle Obama</Text>
-//                 </View>
-//                 <Text style={{ marginTop: 20 }}>
-//                     An intimate, powerful, and inspiring
-//                     memoir by the former First Lady of
-//                     the United States, now a No.1 Sunday
-//                     Times bestseller.
-//                 </Text>
-//             </View>
-//         </View>
-//     )}>
-
-// </FlatList>
-// </View>
-// <View style={{ borderColor: '#e6e6e6', marginVertical: 10, borderWidth: 1, marginHorizontal: 20 }}></View>
-// <FlatList
-// data={data}
-// renderItem={({ item }) => (
-//     <View style={{ flexDirection: 'row' ,marginHorizontal:10 }}>
-//         <Image source={require('../../../asserts/harry_porter.png')} style={styles.imageStyle} />
-//         <View style={{ marginLeft: 10 }}>
-//             <View style={{ flexDirection: 'row', justifyContent: 'flex-start' }}>
-//                 <Text style={{ marginRight: 20, fontWeight: 'bold' }}>Coming</Text>
-//                 <Text >By Michelle Obama</Text>
-//             </View>
-//             <Text style={{ marginTop: 20 }}>
-//                 An intimate, powerful, and inspiring
-//                 memoir by the former First Lady of
-//                 the United States, now a No.1 Sunday
-//                 Times bestseller.
-//             </Text>
-//         </View>
-//     </View>
-// )}>
-// </FlatList>
+ 
