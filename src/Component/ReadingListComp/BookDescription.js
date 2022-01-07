@@ -44,18 +44,23 @@ const BookDescription = () => {
                 <Text> 4.5/5</Text>
            </View>
 
-           <View>
+            
 
            <View style={{flexDirection:'row', alignSelf:'center', marginTop:16 }}>
                <Text style={{borderRadius:24, width:140, textAlign:'center', paddingVertical:8, fontWeight:'bold', fontSize:18, color:COLORS.white, backgroundColor:COLORS.chocklate}}>Read</Text>
-               <Image source={require('../../assests/icons/circle_plus.png')} style={{marginLeft:10,width:40, height:40}}/>
+               <View>
+
+                    <Image source={require('../../assests/icons/circle_plus.png')} style={{marginLeft:10,width:40, height:40}}/>
+
+               </View>
+              
            </View>
 
-           <Image source={require('../../assests/icons/floating_hint.png')} style={{alignSelf:'flex-end'}}/>
+           <Image source={require('../../assests/icons/floating_hint.png')} style={{alignSelf:'center'}}/>
       
 
 
-           </View>
+           
 
            
 
