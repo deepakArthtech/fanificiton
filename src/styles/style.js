@@ -32,4 +32,36 @@ text: {
 
  },
 
+ arrowstyle:{
+     width:20,
+     height:20,
+     marginRight:16
+     
+ },
+
+ textInputStyle:{
+    color:'black',
+    flexDirection:'row',
+    justifyContent:'center',
+    alignItems:'center',
+    paddingHorizontal:10 ,
+    backgroundColor:'#F2F2F2',
+    flex:1,
+    borderRadius:24,
+    height:40,
+  },
+
+  textheading:{
+      color:COLORS.black,
+     fontSize:18,
+      fontWeight:'600',
+      marginTop:24
+  },
+
+  imagestyle:{
+width:100,
+height:160,
+borderRadius:4
+  }
+
 });

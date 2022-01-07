@@ -35,7 +35,7 @@ const windowHeight = Dimensions.get('window').height;
 
 
 
-const Genre = () => {
+const Genre = ({navigation}) => {
 
     const [index, setIndex] = React.useState(0);
     const [status, setStatus] = React.useState("romance");
@@ -74,9 +74,9 @@ const Genre = () => {
       <View style={{ flex: 1, backgroundColor:COLORS.white }}>
 
       <View style ={{flexDirection:'row', alignContent:'center', alignItems:'center', marginTop:30, marginHorizontal:16, marginBottom:16}}>
-                <View  style={styles.textInputStyle}>
+                <View  style={styles.textInputStyle} >
                     <Image source={require('../asserts/search_icon.png')} />
-                    <TextInput placeholder="Search for novel" style={{ flex: 1, marginLeft: 10 }} />
+                    <Text editable={false} onPress={()=>navigation.navigate('SearchScreen')} placeholder="Search for novel" style={{ flex: 1, marginLeft: 10 }} />
                 </View>
                 <Image source={require('../assests/icons/gift.png')} style={{ marginLeft: 16 , width:26, height:26}} />
                 <Image source={require('../assests/icons/filter.png')} style={{marginLeft: 8 , marginTop:8, width:26, height:30}} />

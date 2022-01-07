@@ -13,6 +13,7 @@ import Menu from './src/Screens/Menu';
 import Notifications from './src/Screens/Notifications';
 import Genre from './src/Screens/Genre';
 import ChangeIntrest from './src/Screens/ChangeIntrest';
+import Search from './src/Screens/Search';
 
 const App =() => {
   return(

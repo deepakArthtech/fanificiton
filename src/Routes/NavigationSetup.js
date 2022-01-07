@@ -12,6 +12,7 @@ import UploadStory from '../Screens/UploadBook/UploadStory';
 import WriteBook from '../Screens/UploadBook/Write';
 import BookDetails from "../Screens/BookDetails";
 import ChangeIntrest from '../Screens/ChangeIntrest';
+import Search from '../Screens/Search';
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,7 @@ function NavigationSetup() {
         <Stack.Screen name="BookDetails" component={BookDetails} options={{ headerTitleAlign: 'center' }} />
         <Stack.Screen name="ChangeIntrest" component={ChangeIntrest} options={{ headerTitleAlign: 'center' }} />
         <Stack.Screen name="HomeScreen" component={BottomTabNavigation} options={{ headerShown: false}} />
+        <Stack.Screen name="SearchScreen" component={Search} options={{ headerShown: false}} />
     
       </Stack.Navigator>
     </NavigationContainer>
