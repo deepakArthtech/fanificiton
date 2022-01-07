@@ -30,11 +30,12 @@ const LibraryNavigation = () => {
         <TabBar
             {...props}
             activeColor={appColors.primary}
+            pressColor='transparent'
             indicatorStyle={{ textDecorationLine:'underline', backgroundColor:appColors.primary}}           
             tabStyle={{padding:0,marginRight:5}}
             labelStyle={{fontSize:16,fontWeight:'bold'}}
             inactiveColor={'Black'}
-            style={{backgroundColor:appColors.white, elevation:0, width:'70%', marginTop:10}}
+            style={{backgroundColor:appColors.white, elevation:0, width:'80%', marginTop:10}}
         />
     );
 

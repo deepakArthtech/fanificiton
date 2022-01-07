@@ -1,5 +1,5 @@
 import React from 'react'
-import {Image, TextInput, View,StyleSheet,Text,FlatList,Dimensions} from 'react-native'
+import {Image, TextInput, View,StyleSheet,Text,FlatList,Dimensions, TouchableOpacity} from 'react-native'
 import COLORS from '../../color/Colors';
 import { ProgressBar} from 'react-native-paper';
 const data = [
@@ -13,7 +13,7 @@ const data = [
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-function Reading  ()  {
+function Reading  ({navi})  {
     return (
         <View>
                  <FlatList
@@ -22,11 +22,13 @@ function Reading  ()  {
                      data={data}
                      keyExtractor={item=>item.id}
                      renderItem={({item})=>(
-                        <View style={{margin:10}}>
-                             <Image source={require('../../asserts/harry_porter.png')} style={styles.imageStyle}/>
-                            <Text>{item.title}</Text>
+                        <View style={{marginTop:16, marginRight:16}}>
+                            <TouchableOpacity onPress={()=>navigation.navigate('BookDescription')}>
+                            <Image source={require('../../asserts/harry_porter.png')} style={styles.imageStyle}/>
+                            </TouchableOpacity>
+                            <Text  style={{fontWeight:'600', marginTop:8}}>{item.title}</Text>
                              <Text>{item.author}</Text>
-                             <ProgressBar style={{marginTop:8}} progress={0.5} color="#640000" />
+                             <ProgressBar style={{marginTop:6, borderRadius:4, height:6}} progress={0.5} color="#640000" />
                          </View>
                      )}> 
 

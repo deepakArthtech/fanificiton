@@ -24,7 +24,7 @@ function Login({navigation}){
 
           <MaterialTextInput label={'E-mail'} activeOutlineColor="#640000" placeholder="Enter your E-mail" mode="outlined" style={{width:'100%', marginTop:20}}></MaterialTextInput>
 
-          <View style={{ marginTop:20,   flex:1, flexDirection:'row'}}>
+          <View  style={{ marginTop:20,   flex:1, flexDirection:'row'}}>
           <MaterialTextInput style={{flex:1}} label={'Password'}  secureTextEntry right={<MaterialTextInput.Icon  name="eye" forceTextInputFocus={false} />}  activeOutlineColor="#640000" passwordRules="true" placeholder="Enter your Password" mode="outlined"></MaterialTextInput>
           </View>
          

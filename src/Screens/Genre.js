@@ -1,5 +1,5 @@
 import React from 'react'
-import { Dimensions, ScrollView, StyleSheet, Text, View,Image, TextInput } from 'react-native'
+import { Dimensions, ScrollView, StyleSheet, Text, View,Image, TextInput, TouchableHighlight } from 'react-native'
 import { TabView, TabBar } from 'react-native-tab-view';
 import Romance from "../Screens/Genre/Romance/Romance";
 import Classic from "../Screens/Genre/Classic/Classic";
@@ -74,10 +74,13 @@ const Genre = ({navigation}) => {
       <View style={{ flex: 1, backgroundColor:COLORS.white }}>
 
       <View style ={{flexDirection:'row', alignContent:'center', alignItems:'center', marginTop:30, marginHorizontal:16, marginBottom:16}}>
-                <View  style={styles.textInputStyle} >
-                    <Image source={require('../asserts/search_icon.png')} />
-                    <Text editable={false} onPress={()=>navigation.navigate('SearchScreen')} placeholder="Search for novel" style={{ flex: 1, marginLeft: 10 }} />
-                </View>
+
+      
+          
+        <View  style={styles.textInputStyle} >
+          <Image source={require('../asserts/search_icon.png')} />
+          <Text  onPress={()=>navigation.navigate('SearchScreen')}  placeholder="Search for novel" style={{ flex: 1, marginLeft: 10, color:COLORS.gray }} />
+        </View>
                 <Image source={require('../assests/icons/gift.png')} style={{ marginLeft: 16 , width:26, height:26}} />
                 <Image source={require('../assests/icons/filter.png')} style={{marginLeft: 8 , marginTop:8, width:26, height:30}} />
             </View>

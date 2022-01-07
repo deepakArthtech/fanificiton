@@ -14,6 +14,7 @@ import Notifications from './src/Screens/Notifications';
 import Genre from './src/Screens/Genre';
 import ChangeIntrest from './src/Screens/ChangeIntrest';
 import Search from './src/Screens/Search';
+import BookDescription from './src/Component/ReadingListComp/BookDescription';
 
 const App =() => {
   return(

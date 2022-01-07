@@ -26,7 +26,7 @@ const Search = () => {
           <View style={{padding:20, flex:1, backgroundColor:COLORS.white}}>
             <View style={{flexDirection:'row', alignItems:'center'}}>
             <Image source={require('../assests/icons/left_arrow.png')} style={style.arrowstyle}/>
-            <View  style={style.textInputStyle} >
+            <View style={style.textInputStyle} >
                   <Image source={require('../asserts/search_icon.png')} />
                   <TextInput  placeholder="Search for novel" style={{ flex: 1, marginLeft: 10 }} />
                 </View>
@@ -56,7 +56,7 @@ const Search = () => {
                      data={data}
                      keyExtractor={item=>item.id}
                      renderItem={({item})=>(
-                        <View style={{marginRight:10, width:100}}>
+                        <View style={{marginRight:16, width:100}}>
                              <Image source={require('../asserts/harry_porter.png')} style={style.imagestyle}/>
                             <Text>{item.title}</Text>
                               

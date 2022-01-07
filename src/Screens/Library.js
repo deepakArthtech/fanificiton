@@ -18,8 +18,8 @@ const windowHeight = Dimensions.get('window').height;
 
 function HomeScreen(){
     return(
-        <View style={{flex:1,backgroundColor:appColors.white}}>
-            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-start', marginHorizontal:20}}>
+        <View style={{flex:1,backgroundColor:appColors.white, paddingLeft:20, paddingRight:6, paddingTop:20}}>
+            <View style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-start',  }}>
             <View style={style.textInputStyle}>
                 <Image source = {require('../asserts/search_icon.png')} />
                 <TextInput placeholder="Search For Novel" style={{flex:1,marginLeft:10}}/>
