@@ -1,24 +1,26 @@
 
 import React, { useState } from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet,  TouchableOpacity, View } from 'react-native'
 import Container from '../Component/Container'
 import CustomHeader from '../Component/CustomHeader'
-import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button'
+import RadioForm, {RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button'
 import { appColors } from '../Utils/appColors'
 import COLORS from '../color/Colors'
 import RadioGroup from 'react-native-radio-buttons-group';
+import { RadioButton, Text } from 'react-native-paper';
 
 
 var radioButtonsData = [
     {id:1,label: 'New', value: 0 ,  color:COLORS.chocklate,},
-    {id:2,label: 'Ratings', value: 1 , color:COLORS.chocklate },
+    {id:2,label: 'Ratings', value: 1 , color:COLORS.chocklate,  },
     {id:3,label: 'New', value: 2 , color:COLORS.chocklate,alignSelf:'flex-start'}];
 
   const interestList = ['Romance', 'Action', 'Mystery', 'War', 'Fantasy', 'Supernatural'];
 
 const ChangeIntrest = ({navigation}) => {
-    const [value, setValue] = useState(0)
+ 
     const [radioButtons, setRadioButtons] = useState(radioButtonsData)
+      const [value, setValue] = React.useState('first');
     function onPressRadioButton(radioButtonsArray) {
         setRadioButtons(radioButtonsArray);
     }
@@ -28,12 +30,23 @@ const ChangeIntrest = ({navigation}) => {
 
             <Text style={{alignSelf:'flex-end', color:COLORS.black, fontSize:16, fontWeight:'600'}}>RESET</Text>
                 <Text style={{fontWeight:'600'}}>Sort by</Text>
-                 <View style={{alignSelf:'flex-start', marginTop:8}}>
-                 <RadioGroup style={{alignItems:'start'}}
-                radioButtons={radioButtons} 
-                borderColor={COLORS.chocklate}
-                onPress={onPressRadioButton} />
-                 </View>
+                <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
+      <View>
+
+          <View style={{flexDirection:'row', alignItems:'center'}}>
+          <RadioButton value="first" color={COLORS.chocklate} />
+          <Text style={{color:value==='first'?COLORS.black:COLORS.gray, fontWeight:'600'}}>New</Text>
+          </View>
+          <View style={{flexDirection:'row', alignItems:'center'}}>
+          <RadioButton value="second" color={COLORS.chocklate} />
+          <Text style={{color:value==='second'?COLORS.black:COLORS.gray, fontWeight:'600'}}>Rating</Text>
+          </View>
+          <View style={{flexDirection:'row', alignItems:'center'}}>
+          <RadioButton value="third" color={COLORS.chocklate} />
+          <Text style={{color:value==='third'?COLORS.black:COLORS.gray, fontWeight:'600'}}>New</Text>
+          </View>
+      </View>
+    </RadioButton.Group>
                 <View style={{borderTopColor:appColors.black,borderTopWidth:1,marginVertical:10}}/>
                     <Text style={{fontWeight:'600'}}>Refine by Tags</Text>
 
