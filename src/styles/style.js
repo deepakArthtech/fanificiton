@@ -7,7 +7,7 @@ export default StyleSheet.create({
 
 container: {
     flex: 1,
-    marginTop: 20
+    padding: 20
 },
 text: {
     padding: 16,
@@ -19,7 +19,7 @@ text: {
  },
  line:{
      height:1,
-     backgroundColor:COLORS.gray,
+     backgroundColor:COLORS.lightGray,
      flex:0.5,
  },
  btnsoical:{
@@ -59,9 +59,9 @@ text: {
   },
 
   imagestyle:{
-width:100,
-height:160,
-borderRadius:4
+    width:100,
+    height:160,
+    borderRadius:4
   }
 
 });

@@ -15,6 +15,7 @@ import Genre from './src/Screens/Genre';
 import ChangeIntrest from './src/Screens/ChangeIntrest';
 import Search from './src/Screens/Search';
 import BookDescription from './src/Component/ReadingListComp/BookDescription';
+import MyCollection from './src/Component/ReadingListComp/MyCollection';
 
 const App =() => {
   return(

@@ -79,7 +79,7 @@ const Genre = ({navigation}) => {
           
         <View  style={styles.textInputStyle} >
           <Image source={require('../asserts/search_icon.png')} />
-          <Text  onPress={()=>navigation.navigate('BookDescription')}  placeholder="Search for novel" style={{ flex: 1, marginLeft: 10, color:COLORS.gray }} />
+          {/* <Text  onPress={()=>navigation.navigate('MyCollection')}  placeholder="Search for novel" style={{ flex: 1, marginLeft: 10, color:COLORS.gray }} /> */}
         </View>
                 <Image source={require('../assests/icons/gift.png')} style={{ marginLeft: 16 , width:26, height:26}} />
                 <Image source={require('../assests/icons/filter.png')} style={{marginLeft: 8 , marginTop:8, width:26, height:30}} />

@@ -2,7 +2,6 @@ import React from 'react'
 import { Dimensions, ScrollView, StyleSheet, Text, View,Image, TextInput } from 'react-native'
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import { Rating } from 'react-native-ratings';
-import { flex, style } from 'styled-system';
 import COLORS from '../../color/Colors';
  
  

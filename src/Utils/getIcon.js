@@ -31,9 +31,11 @@ export const getIcon=(icon)=>{
         case 'call':
             return require('../asserts/call.png')
         case 'face':
-            return require('../asserts/face.png')
+            return require('../assests/icons/notification.png')
         case 'addBook':
             return require('../asserts/addBook.png')
+        case 'leftArrow':
+            return require('../assests/icons/left_arrow.png')
         default:
             return 
     }

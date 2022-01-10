@@ -1,5 +1,6 @@
 import React from 'react'
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
+import COLORS from '../color/Colors'
 import Container from '../Component/Container'
 import CustomHeader from '../Component/CustomHeader'
 import { appColors } from '../Utils/appColors'
@@ -10,20 +11,22 @@ const Notifications = () => {
     return (
         <View style={Styles.container}>
            <Container>
-                <CustomHeader
-                />
-                <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+           <Image
+                source={getIcon('leftArrow')} style={{height:24,width:24,
+                        }}
+                    />
+                <View style={{flex:1 , marginTop:72}}>
                     <Image
                         source={getIcon('face')}
                         style={{height:300,width:300,
-                        alignItems:'flex-end',justifyContent:'flex-end',}}
+                        }}
                     />
                 <View>
                     <Text style={styles.txt}>
                         No Notifications!
                     </Text>
                     <Text
-                    style={[styles.txt,{fontWeight:'normal',lineHeight:30,color:appColors.borderColor}]}
+                    style={[styles.txt,{fontWeight:'normal',lineHeight:30,color:COLORS.gray}]}
                     >
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                     </Text>
