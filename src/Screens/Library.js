@@ -16,7 +16,7 @@ const data = [
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-function HomeScreen(){
+function HomeScreen({navigation}){
     return(
         <View style={{flex:1,backgroundColor:appColors.white, paddingLeft:20, paddingRight:6, paddingTop:20}}>
             <View style={{flexDirection:'row',alignItems:'center',justifyContent:'flex-start',  }}>
@@ -27,7 +27,7 @@ function HomeScreen(){
 
             </View>
             
-            <LibraryNavigation />
+            <LibraryNavigation navigation={navigation}/>
         </View>
     )
 }

@@ -13,7 +13,7 @@ const data = [
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-function Reading  ({navi})  {
+function Reading  ({navigation})  {
     return (
         <View>
                  <FlatList
@@ -33,7 +33,6 @@ function Reading  ({navi})  {
                      )}> 
 
                  </FlatList>
-               
            </View>
        
     )

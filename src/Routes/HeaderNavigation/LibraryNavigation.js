@@ -10,21 +10,30 @@ import ReadingList from '../../Screens/Library/ReadingList'
 import { appColors } from "../../Utils/appColors";
 
 
-const renderScene = SceneMap({
-    reading:  Reading, 
-    readinglist :ReadingList
-});
+// const renderScene = SceneMap({
+//     reading:  Reading, 
+//     readinglist :ReadingList
+// });
 
 
-const LibraryNavigation = () => {
+const LibraryNavigation = ({navigation}) => {
 
     const layout = useWindowDimensions();
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
-        { key: 'reading', title: 'Reading' },
+        { key: 'reading', title: 'Reading'},
         { key: 'readinglist', title: 'ReadingList'},
             
     ]);
+
+    const renderScene = ({ route, jumpTo }) => {
+        switch (route.key) {
+          case 'reading':
+            return <Reading jumpTo={jumpTo} navigation={navigation} />;
+          case 'readinglist':
+            return <ReadingList jumpTo={jumpTo} navigation={navigation}  />;
+        }
+      };
 
     const renderTabBar = props => (
         <TabBar

@@ -37,7 +37,7 @@ const Notifications = () => {
     )
 }
 
-export default Notifications
+
 
 const styles = StyleSheet.create({
     zeroView:{
@@ -55,3 +55,4 @@ const styles = StyleSheet.create({
         marginBottom:10
     }
 })
+export default Notifications
