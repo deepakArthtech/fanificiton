@@ -14,7 +14,7 @@ import { appColors } from '../Utils/appColors';
 
 const Tab = createBottomTabNavigator()
 
-const BottomTabNavigation = () => {
+const BottomTabNavigation = ({Navigator}) => {
   
   return (
     
