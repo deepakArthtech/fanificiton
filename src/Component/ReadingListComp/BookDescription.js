@@ -14,7 +14,7 @@ const windowHeight = Dimensions.get('window').height;
 
 
 
-const BookDescription = ({navigation}) => {
+const BookDescription = () => {
 
   return(
 
@@ -46,7 +46,7 @@ const BookDescription = ({navigation}) => {
             
 
            <View style={{flexDirection:'row', alignSelf:'center', marginTop:16 }}>
-               <Text style={{borderRadius:24, width:140, textAlign:'center', paddingVertical:8, fontWeight:'bold', fontSize:18, color:COLORS.white, backgroundColor:COLORS.chocklate}} onPress={()=>navigation.navigate('BookDetails')}>Read</Text>
+               <Text style={{borderRadius:24, width:140, textAlign:'center', paddingVertical:8, fontWeight:'bold', fontSize:18, color:COLORS.white, backgroundColor:COLORS.chocklate}}>Read</Text>
                <View>
 
                     <Image source={require('../../assests/icons/circle_plus.png')} style={{marginLeft:10,width:40, height:40}}/>

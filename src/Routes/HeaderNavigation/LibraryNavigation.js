@@ -21,7 +21,7 @@ const LibraryNavigation = ({navigation}) => {
     const layout = useWindowDimensions();
     const [index, setIndex] = React.useState(0);
     const [routes] = React.useState([
-        { key: 'reading', title: 'Reading' },
+        { key: 'reading', title: 'Reading'},
         { key: 'readinglist', title: 'ReadingList'},
             
     ]);

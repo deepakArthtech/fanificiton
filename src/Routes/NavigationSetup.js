@@ -16,6 +16,7 @@ import Search from '../Screens/Search';
 import BookDescription from '../Component/ReadingListComp/BookDescription';
 import MyCollection from '../Component/ReadingListComp/MyCollection';
 import Notifications from '../Screens/Notifications';
+import DrawerNavigation from './DrawerNavigation';
 
 
 const Stack = createNativeStackNavigator();
@@ -37,10 +38,11 @@ function NavigationSetup() {
         <Stack.Screen name="BookDetails" component={BookDetails} options={{ headerTitleAlign: 'center' }} />
         <Stack.Screen name="ChangeIntrest" component={ChangeIntrest} options={{ headerTitleAlign: 'center' }} />
         <Stack.Screen name="HomeScreen" component={BottomTabNavigation} options={{ headerShown: false}} />
+        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} options={{ headerShown: false}} />
         <Stack.Screen name="SearchScreen" component={Search} options={{ headerShown: false}} />
         <Stack.Screen name="BookDescription" component={BookDescription} options={{ headerShown: false}} />
         <Stack.Screen name="MyCollection" component={MyCollection} options={{ headerShown: false}} />
-        {/* <Stack.Screen name="Notifications" cmoponent={Notifications} options={{ headerShown: false}} /> */}
+        <Stack.Screen name="Notifications" component={Notifications} options={{ headerShown: false}} />
         {/* <Stack.Screen name="Menu" cmoponent={Menu} options={{ headerShown: false}} /> */}
     
       </Stack.Navigator>

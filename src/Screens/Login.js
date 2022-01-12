@@ -31,7 +31,7 @@ function Login({navigation}){
 
           <Text style={{color:COLORS.chocklate, marginTop:10}}>Forgot password?</Text>
           <TouchableOpacity>
-          <Text  style={style.text} onPress={()=>navigation.navigate('HomeScreen')}>Continue</Text>
+          <Text  style={style.text} onPress={()=>navigation.navigate('DrawerNavigation')}>Continue</Text>
             
           </TouchableOpacity>
 

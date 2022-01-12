@@ -33,7 +33,6 @@ function Reading  ({navigation})  {
                      )}> 
 
                  </FlatList>
-               
            </View>
        
     )
