@@ -18,6 +18,7 @@ import MyCollection from '../Component/ReadingListComp/MyCollection';
 import Notifications from '../Screens/Notifications';
 import DrawerNavigation from './DrawerNavigation';
 
+
 const Stack = createNativeStackNavigator();
 
 
@@ -25,7 +26,7 @@ function NavigationSetup() {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator screenOptions={{headerShown:false}} cardStyle={{ backgroundColor: 'black', opacity: 1 }}>
+      <Stack.Navigator screenOptions={{ headerShown: false }} cardStyle={{ backgroundColor: 'black', opacity: 1 }}>
         <Stack.Screen name="Splash" component={Splash} options={{ headerTitleAlign: 'center', headerShown: false }} />
         <Stack.Screen name="TypeScreen" component={SelectTypeScreen} options={{ headerTitleAlign: 'center', headerShown: false }} />
         <Stack.Screen name="Login" component={Login} options={{ title: 'Login', headerTitleAlign: 'center' }} />
@@ -36,14 +37,14 @@ function NavigationSetup() {
         <Stack.Screen name="WriteBook" component={WriteBook} options={{ headerTitleAlign: 'center' }} />
         <Stack.Screen name="BookDetails" component={BookDetails} options={{ headerTitleAlign: 'center' }} />
         <Stack.Screen name="ChangeIntrest" component={ChangeIntrest} options={{ headerTitleAlign: 'center' }} />
-        <Stack.Screen name="HomeScreen" component={BottomTabNavigation} options={{ headerShown: false}} />
-        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} options={{ headerShown: false}} />
-        <Stack.Screen name="SearchScreen" component={Search} options={{ headerShown: false}} />
-        <Stack.Screen name="BookDescription" component={BookDescription} options={{ headerShown: false}} />
-        <Stack.Screen name="MyCollection" component={MyCollection} options={{ headerShown: false}} />
-        <Stack.Screen name="Notifications" component={Notifications} options={{ headerShown: false}} />
-        {/* <Stack.Screen name="Menu" cmoponent={Menu} options={{ headerShown: false}} /> */}
-    
+        <Stack.Screen name="HomeScreen" component={BottomTabNavigation} options={{ headerShown: false }} />
+        <Stack.Screen name="DrawerNavigation" component={DrawerNavigation} options={{ headerShown: false }} />
+        <Stack.Screen name="SearchScreen" component={Search} options={{ headerShown: false }} />
+        <Stack.Screen name="BookDescription" component={BookDescription} options={{ headerShown: false }} />
+        <Stack.Screen name="MyCollection" component={MyCollection} options={{ headerShown: false }} />
+        <Stack.Screen name="Notifications" component={Notifications} options={{ headerShown: false }} />
+        {/* <Stack.Screen name="MyTabs" cmoponent={MyTabs} options={{ headerShown: false}} /> */}
+
       </Stack.Navigator>
     </NavigationContainer>
   );
