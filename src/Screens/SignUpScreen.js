@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {View, Text, Image} from 'react-native';
 import { ScrollView, TouchableOpacity } from "react-native";
 import { Button, TextInput as MaterialTextInput} from 'react-native-paper';
@@ -8,11 +8,36 @@ import { Colors } from "react-native/Libraries/NewAppScreen";
 import { TouchableHighlight } from "react-native-gesture-handler";
 import COLORS from "../color/Colors";
 import style from "../styles/style";
+import { useDispatch, useSelector } from "react-redux";
+import { signUp } from "../redux/actions/actions";
  
  
 
 
-function SignUpScreen({navigation}){
+function SignUpScreen(props){
+
+
+  const [email,setEmail] = useState('')
+  const [password,setPassword] = useState('')
+
+  const {headerToken} = useSelector(state => state.authReducer);
+
+  console.log("HeaderToken===>",headerToken);
+
+  useEffect(() => {
+
+    if (Object.keys(headerToken).length>0) {
+      navigation.navigate('DrawerNavigation')
+    }
+    
+  }, [headerToken])
+
+
+  const dispatch = useDispatch()
+
+  const {navigation} = props;
+
+
     return (
         <SafeAreaView style={{paddingHorizontal:20, flex:1, backgroundColor:COLORS.white}}>
 
@@ -22,15 +47,21 @@ function SignUpScreen({navigation}){
           
           </View>
 
-          <MaterialTextInput label={'E-mail'} activeOutlineColor="#640000" placeholder="Enter your E-mail" mode="outlined" style={{width:'100%', marginTop:20}}></MaterialTextInput>
+          <MaterialTextInput label={'E-mail'} activeOutlineColor="#640000" placeholder="Enter your E-mail" mode="outlined" style={{width:'100%', marginTop:20}} onChangeText={text=>{
+            setEmail(text)
+          }}></MaterialTextInput>
 
           <View style={{ marginTop:20,   flex:1, flexDirection:'row'}}>
-          <MaterialTextInput style={{flex:1}} label={'Password'}  secureTextEntry={true}  activeOutlineColor="#640000" passwordRules="true" placeholder="Enter your Password" mode="outlined"></MaterialTextInput>
+          <MaterialTextInput style={{flex:1}} label={'Password'}  secureTextEntry={true}  activeOutlineColor="#640000" passwordRules="true" placeholder="Enter your Password" mode="outlined"
+          onChangeText={text=>{
+            setPassword(text)
+          }}
+          ></MaterialTextInput>
           </View>
          
-          <TouchableOpacity>
-          <Text  style={style.text} onPress={()=>navigation.navigate('HomeScreen')}>Continue</Text>
-            
+          <TouchableOpacity onPress={()=>dispatch(signUp({email,password}))}>
+          <Text  style={style.text} >Continue</Text>
+             {/* navigation.navigate('HomeScreen') */}
           </TouchableOpacity>
 
 

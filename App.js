@@ -16,11 +16,17 @@ import ChangeIntrest from './src/Screens/ChangeIntrest';
 import Search from './src/Screens/Search';
 import BookDescription from './src/Component/ReadingListComp/BookDescription';
 import MyCollection from './src/Component/ReadingListComp/MyCollection';
+import {Provider} from 'react-redux'
+import store from './src/redux/store'
+
 
 const App =() => {
   return(
     // <ChangeIntrest/>
-    <NavigationSetup />
+    <Provider store={store}>
+        <NavigationSetup />
+    </Provider>
+    
     
   )
 }
