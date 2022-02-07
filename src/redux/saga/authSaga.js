@@ -106,7 +106,7 @@ function* signUpSagaWorker(action) {
       email: email,
       password: password,
       uId,
-      name,
+      userName: name,
       loginType,
     });
 

@@ -6694,7 +6694,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@^15.5.6", "prop-types@^15.6.2", "prop-types@^15.7.2", "prop-types@15.7.2":
+"prop-types@^15.5.10", "prop-types@^15.5.6", "prop-types@^15.6.2", "prop-types@^15.7.2", "prop-types@15.7.2":
   "integrity" "sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ=="
   "resolved" "https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz"
   "version" "15.7.2"
@@ -6820,10 +6820,10 @@
     "prop-types" "15.7.2"
     "react-async-hook" "3.6.1"
 
-"react-native-fbsdk@^3.0.0":
-  "integrity" "sha512-i0JocuzLlGk13J0xFDjm8GlX7SADAL2kh/syE/HOn5HHdW+PFjC31MNj5AtzIw2TicHXpHGO6VPKNfdWFbxboA=="
-  "resolved" "https://registry.npmjs.org/react-native-fbsdk/-/react-native-fbsdk-3.0.0.tgz"
-  "version" "3.0.0"
+"react-native-fbsdk-next@^7.0.1":
+  "integrity" "sha512-pMOIP0HTgz2EjliGQB15SH87I3PaCXRUCWf4XAv4qb+8h/t6fRaZMf4WEEgPAWjzfYQh0eO1qZZu2qjlZKi8ag=="
+  "resolved" "https://registry.npmjs.org/react-native-fbsdk-next/-/react-native-fbsdk-next-7.0.1.tgz"
+  "version" "7.0.1"
 
 "react-native-gesture-handler@*", "react-native-gesture-handler@^1.0.0", "react-native-gesture-handler@^1.10.3", "react-native-gesture-handler@>= 1.0.0":
   "integrity" "sha512-cBGMi1IEsIVMgoox4RvMx7V2r6bNKw0uR1Mu1o7NbuHS6BRSVLq0dP34l2ecnPlC+jpWd3le6Yg1nrdCjby2Mw=="
@@ -6981,6 +6981,13 @@
     "css-select" "^2.1.0"
     "css-tree" "^1.0.0-alpha.39"
 
+"react-native-swiper@^1.6.0":
+  "integrity" "sha512-OnkTTZi+9uZUgy0uz1I9oYDhCU3z36lZn+LFsk9FXPRelxb/KeABzvPs3r3SrHWy1aA67KGtSFj0xNK2QD0NJQ=="
+  "resolved" "https://registry.npmjs.org/react-native-swiper/-/react-native-swiper-1.6.0.tgz"
+  "version" "1.6.0"
+  dependencies:
+    "prop-types" "^15.5.10"
+
 "react-native-tab-view@^2.15.2":
   "integrity" "sha512-ac2DmT7+l13wzIFqtbfXn4wwfgtPoKzWjjZyrK1t+T8sdemuUvD4zIt+UImg03fu3s3VD8Wh/fBrIdcqQyZJWg=="
   "resolved" "https://registry.npmjs.org/react-native-tab-view/-/react-native-tab-view-2.16.0.tgz"
@@ -7005,7 +7012,7 @@
     "prop-types" "^15.7.2"
     "yargs" "^16.1.1"
 
-"react-native@*", "react-native@^0.0.0-0 || 0.60 - 0.66 || 1000.0.0", "react-native@^0.60.5", "react-native@>=0.42.0", "react-native@>=0.50.0", "react-native@>=0.55", "react-native@>=0.57", "react-native@>=0.59.0", "react-native@>=0.63.3", "react-native@>=0.65.0", "react-native@>=0.65.0-rc.0 || 0.0.0-*", "react-native@0.65.0":
+"react-native@*", "react-native@^0.0.0-0 || 0.60 - 0.66 || 1000.0.0", "react-native@^0.60.5", "react-native@>=0.42.0", "react-native@>=0.50.0", "react-native@>=0.55", "react-native@>=0.57", "react-native@>=0.63.3", "react-native@>=0.65.0", "react-native@>=0.65.0-rc.0 || 0.0.0-*", "react-native@0.65.0":
   "integrity" "sha512-swtTbgcz7477PFllfDPvJ6Mx7dm2L1t76wlxsfCEFszl/jqxtdCXHb1K7AXCJDRHaEWVDJxYsU6DUDjzDqfCqQ=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.65.0.tgz"
   "version" "0.65.0"

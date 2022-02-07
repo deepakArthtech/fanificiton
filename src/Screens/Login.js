@@ -1,30 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import {View, Text, Image} from 'react-native';
 import {ScrollView, TouchableOpacity} from 'react-native';
-import {
-  Button,
-  TextInput as MaterialTextInput,
-  TextInput,
-} from 'react-native-paper';
+import {TextInput as MaterialTextInput} from 'react-native-paper';
 import {SafeAreaView} from 'react-navigation';
 import 'react-native-gesture-handler';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {TouchableHighlight} from 'react-native-gesture-handler';
 import COLORS from '../color/Colors';
 import style from '../styles/style';
 import {login, signUp} from '../redux/actions/actions';
 import {useDispatch, useSelector} from 'react-redux';
 import {googleSignIn} from '../Utils/googleSignIn';
-import {
-  AccessToken,
-  GraphRequest,
-  GraphRequestManager,
-  LoginManager,
-} from 'react-native-fbsdk';
+import {AccessToken, LoginManager, Profile} from 'react-native-fbsdk-next';
 
 function Login(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordEye, setPasswordEye] = useState('eye');
+  const [passwordShown, setPasswordShown] = useState(true);
 
   const {headerToken} = useSelector(state => state.authReducer);
 
@@ -56,16 +47,40 @@ function Login(props) {
     );
   };
 
-  const loginWithFacebook = () => {
+  const getFbProfile = async token => {
+    const response = await fetch(
+      `https://graph.facebook.com/me?fields=email,name,first_name,last_name,gender,picture,cover&access_token=${token}`,
+    );
+    let result = await response.json();
+    console.log('FB===>', result);
+    dispatch(
+      signUp({
+        email: result.email,
+        password: '',
+        uId: result.id,
+        name: result.name,
+        loginType: 'facebook',
+      }),
+    );
+  };
+
+  const loginWithFacebook = async () => {
     // Attempt a login using the Facebook login dialog asking for default permissions.
-    LoginManager.logInWithPermissions(['public_profile']).then(
+    LoginManager.logInWithPermissions([
+      'public_profile',
+      'email',
+      'user_friends',
+    ]).then(
       login => {
         if (login.isCancelled) {
           console.log('Login cancelled');
         } else {
           AccessToken.getCurrentAccessToken().then(data => {
+            console.log('=====>', data);
+
             const accessToken = data.accessToken.toString();
-            this.getInfoFromToken(accessToken);
+            // this.getInfoFromToken(accessToken);
+            getFbProfile(accessToken);
           });
         }
       },
@@ -81,15 +96,14 @@ function Login(props) {
       style={{paddingHorizontal: 20, flex: 1, backgroundColor: COLORS.white}}>
       <ScrollView>
         <View style={{marginTop: 100, alignSelf: 'center'}}>
-          <Text
+          <Image
+            source={require('../asserts/StoryHub.png')}
             style={{
               fontWeight: 'bold',
               fontSize: 26,
               color: COLORS.black,
-              fontFamily: 'Montserrat-Bold',
-            }}>
-            Hello!
-          </Text>
+            }}
+          />
         </View>
 
         <MaterialTextInput
@@ -106,9 +120,18 @@ function Login(props) {
           <MaterialTextInput
             style={{flex: 1}}
             label={'Password'}
-            secureTextEntry
+            secureTextEntry={passwordShown}
             right={
-              <MaterialTextInput.Icon name="eye" forceTextInputFocus={false} />
+              <MaterialTextInput.Icon
+                name={passwordEye}
+                forceTextInputFocus={false}
+                onPress={() =>
+                  setPasswordShown(
+                    !passwordShown,
+                    setPasswordEye(passwordShown ? 'eye-off' : 'eye'),
+                  )
+                }
+              />
             }
             onChangeText={text => {
               setPassword(text);
@@ -119,9 +142,9 @@ function Login(props) {
             mode="outlined"></MaterialTextInput>
         </View>
 
-        <Text style={{color: COLORS.chocklate, marginTop: 10}}>
+        {/* <Text style={{color: COLORS.chocklate, marginTop: 10}}>
           Forgot password?
-        </Text>
+        </Text> */}
         <TouchableOpacity onPress={() => dispatch(login({email, password}))}>
           <Text style={style.text}>Continue</Text>
         </TouchableOpacity>

@@ -84,8 +84,7 @@ function Profile({navigation}) {
               alignSelf: 'center',
               fontWeight: '600',
             }}>
-            {' '}
-            John Doe
+            {userInfo.userName}
           </Text>
           <View style={{flexDirection: 'row', flex: 1}}>
             <View style={{alignItems: 'center', flex: 1}}>

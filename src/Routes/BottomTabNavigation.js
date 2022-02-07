@@ -105,7 +105,7 @@ const BottomTabNavigation = () => {
         />
         <Tab.Screen
           name="UploadCover"
-          component={UploadCover}
+          component={UploadBook}
           options={{
             tabBarLabel: '',
             tabBarIcon: ({focused, color, size}) => (

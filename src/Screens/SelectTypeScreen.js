@@ -44,8 +44,10 @@ function SelectTypeScreen({navigation}) {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() =>
-              Object.keys(headerToken).length > 0
-                ? navigation.navigate('DrawerNavigation')
+              headerToken != null
+                ? headerToken.length > 0
+                  ? navigation.navigate('DrawerNavigation')
+                  : navigation.navigate('Login')
                 : navigation.navigate('Login')
             }>
             <Image source={require('../asserts/female_novel.png')} />
