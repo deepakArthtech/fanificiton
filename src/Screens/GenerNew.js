@@ -1,58 +1,23 @@
 import React from 'react';
-import {
-  Dimensions,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  TouchableHighlight,
-} from 'react-native';
-import {TabView, TabBar} from 'react-native-tab-view';
-import Romance from '../Screens/Genre/Romance/Romance';
-import Classic from '../Screens/Genre/Classic/Classic';
-import Crime from '../Screens/Genre/Crime/Crime';
-import Comic from '../Screens/Genre/Comic/Comic';
-import Fantasy from '../Screens/Genre/Fantasy/Fantasy';
-import Tragedy from '../Screens/Genre/Tragedy/Tragedy';
-import {appColors} from '../Utils/appColors';
+import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
+import {TabBar, TabView} from 'react-native-tab-view';
+import {useSelector} from 'react-redux';
 import COLORS from '../color/Colors';
-
-const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
-
-const renderScene = ({route, jumpTo}) => {
-  switch (route.key) {
-    case 'romance':
-      return <Romance jumpTo={jumpTo} />;
-    case 'classic':
-      return <Classic jumpTo={jumpTo} />;
-    case 'crime':
-      return <Crime jumpTo={jumpTo} />;
-    case 'comic':
-      return <Comic jumpTo={jumpTo} />;
-    case 'tragerdy':
-      return <Tragedy jumpTo={jumpTo} />;
-    case 'fantasy':
-      return <Fantasy jumpTo={jumpTo} />;
-  }
-};
-
-const Genre = ({navigation}) => {
+import {appColors} from '../Utils/appColors';
+import Romance from './Genre/Romance/Romance';
+const {height, width} = Dimensions.get('window');
+// const windowHeight = Dimensions.get('window').height;
+const GenerNew = ({navigation}) => {
+  const {data} = useSelector(state => state.genreReducer);
   const [index, setIndex] = React.useState(0);
-  const [status, setStatus] = React.useState('romance');
-  const setStatusFilter = status => {
-    setStatus(status);
+  const [routes] = React.useState(
+    data.length > 1 &&
+      data?.map(data => ({key: data.title, title: data.title})),
+  );
+
+  const renderScene = () => {
+    return <Romance index={index} navigation={navigation} />;
   };
-  const [routes] = React.useState([
-    {key: 'romance', title: 'Romance'},
-    {key: 'crime', title: 'Crime'},
-    {key: 'fantasy', title: 'Fantasy'},
-    {key: 'classic', title: 'Classic'},
-    {key: 'comic', title: 'Comic'},
-    {key: 'tragerdy', title: 'Tragerdy'},
-  ]);
 
   const renderTabBar = props => (
     <TabBar
@@ -62,15 +27,18 @@ const Genre = ({navigation}) => {
       pressColor="transparent"
       indicatorStyle={{
         textDecorationLine: 'underline',
-        backgroundColor: 'none',
+        backgroundColor: '#fff',
       }}
-      tabStyle={
-        (styles.styleTabInactive,
-        status == routes.key && styles.styleTabInactive)
-      }
-      onTabPress={setStatusFilter(routes.key)}
+      tabStyle={styles.styleTabInactive}
+      //   //   tabStyle={
+      //   //     (styles.styleTabInactive,
+      //   //     status == routes.key && styles.styleTabInactive)
+      //   //   }
+      //   onTabPress={({route}) => setStatus(route.key)}
+      //   onTabPress={}
+
       labelStyle={{fontSize: 14, fontWeight: 'bold'}}
-      inactiveColor={'Black'}
+      //   inactiveColor={'Black'}
       style={{
         backgroundColor: 'white',
         elevation: 0,
@@ -105,20 +73,23 @@ const Genre = ({navigation}) => {
           source={require('../assests/icons/gift.png')}
           style={{marginLeft: 16, width: 26, height: 26}}
         />
-        <Image
+        {/* <Image
           source={require('../assests/icons/filter.png')}
           style={{marginLeft: 8, marginTop: 8, width: 26, height: 30}}
-        />
+        /> */}
       </View>
       <TabView
         navigationState={{index, routes}}
         renderScene={renderScene}
         onIndexChange={setIndex}
+        initialLayout={{width: width}}
         renderTabBar={renderTabBar}
       />
     </View>
   );
 };
+
+export default GenerNew;
 
 const styles = StyleSheet.create({
   textInputStyle: {
@@ -133,8 +104,8 @@ const styles = StyleSheet.create({
     height: 40,
   },
   imageStyle: {
-    height: windowHeight / 3,
-    width: windowWidth / 3,
+    height: height / 3,
+    width: width / 3,
     borderRadius: 10,
   },
   styleTab: {
@@ -153,5 +124,3 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.chocklate,
   },
 });
-
-export default Genre;

@@ -1,118 +1,103 @@
-import React, { useEffect, useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import Container from '../../Component/Container'
-import Styles from '../../Utils/Styles'
+import React, {useState} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import StepIndicator from 'react-native-step-indicator';
-import UploadCover from './UploadCover';
-import PagerView from 'react-native-pager-view';
+import Swiper from 'react-native-swiper';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Foundation from 'react-native-vector-icons/Foundation';
+import Feather from 'react-native-vector-icons/Feather';
+import {appColors} from '../../Utils/appColors';
 import UploadStory from './UploadStory';
-import { launchImageLibrary,launchCamera, } from 'react-native-image-picker';
+import WriteBook from './Write';
+import UploadCover from './UploadCover';
 
+const UploadBook = () => {
+  const [currentPage, setCurrentPage] = useState(0);
 
-const labels = ["page1","page2","Page3"];
-const customStyles = {
-  stepIndicatorSize: 25,
-  currentStepIndicatorSize:30,
-  separatorStrokeWidth: 2,
+  const onStepPress = position => {
+    setCurrentPage(position);
+  };
+
+  const renderStepIndicator = params => {
+    switch (params.position) {
+      case 0:
+        return (
+          <Feather
+            name={'upload'}
+            size={15}
+            color={params.stepStatus === 'finished' ? '#ffffff' : '#000'}
+          />
+        );
+      case 1:
+        return (
+          <MaterialCommunityIcons
+            name={'pencil'}
+            size={15}
+            color={params.stepStatus === 'finished' ? '#ffffff' : '#000'}
+          />
+        );
+      case 2:
+        return (
+          <Foundation
+            name={'megaphone'}
+            size={15}
+            color={params.stepStatus === 'finished' ? '#ffffff' : '#000'}
+          />
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <View style={{flex: 1, paddingTop: 10}}>
+      <StepIndicator
+        customStyles={secondIndicatorStyles}
+        currentPosition={currentPage}
+        onPress={onStepPress}
+        renderStepIndicator={renderStepIndicator}
+        stepCount={3}
+      />
+      <Swiper
+        style={{flexGrow: 1}}
+        loop={false}
+        index={currentPage}
+        autoplay={false}
+        showsPagination={false}
+        onIndexChanged={page => setCurrentPage(page)}>
+        <UploadCover />
+        <UploadStory />
+        <WriteBook />
+      </Swiper>
+    </View>
+  );
+};
+
+export default UploadBook;
+
+const styles = StyleSheet.create({});
+
+const secondIndicatorStyles = {
+  stepIndicatorSize: 30,
+  currentStepIndicatorSize: 40,
+  separatorStrokeWidth: 5,
   currentStepStrokeWidth: 3,
-  stepStrokeCurrentColor: '#fe7013',
+  stepStrokeCurrentColor: appColors.primary,
   stepStrokeWidth: 3,
-  stepStrokeFinishedColor: '#fe7013',
+  separatorStrokeFinishedWidth: 4,
+  stepStrokeFinishedColor: appColors.primary,
   stepStrokeUnFinishedColor: '#aaaaaa',
-  separatorFinishedColor: '#fe7013',
-  separatorUnFinishedColor: '#aaaaaa',
-  stepIndicatorFinishedColor: '#fe7013',
-  stepIndicatorUnFinishedColor: '#ffffff',
+  separatorFinishedColor: appColors.primary,
+  separatorUnFinishedColor: '#DEDEDE',
+  stepIndicatorFinishedColor: appColors.primary,
+  stepIndicatorUnFinishedColor: '#DEDEDE',
   stepIndicatorCurrentColor: '#ffffff',
   stepIndicatorLabelFontSize: 13,
   currentStepIndicatorLabelFontSize: 13,
-  stepIndicatorLabelCurrentColor: '#fe7013',
-  stepIndicatorLabelFinishedColor: '#ffffff',
-  stepIndicatorLabelUnFinishedColor: '#aaaaaa',
+  stepIndicatorLabelCurrentColor: '',
+  // stepIndicatorLabelFinishedColor: 'red',
+  stepIndicatorLabelUnFinishedColor: '#DEDEDE',
   labelColor: '#999999',
   labelSize: 13,
-  currentStepLabelColor: '#fe7013'
-}
-
-const UploadBook = () => {
-
-    const [position,setPosition]=useState(0)
-
-    useEffect(() => {
-        renderScreen()
-    }, [position])
-
-    const renderScreen=(val)=>{
-        switch (val) {
-            case 0:
-                return (
-                    <View style={{height:400,width
-                    :400,backgroundColor:'red'}}>
-                        <Text>Scean One</Text>
-                    </View>
-                )
-            case 1:
-                return (
-                    <View style={{height:400,width
-                    :400,backgroundColor:'blue'}}>
-                        <Text>Scean Two</Text>
-                    </View>
-                )
-            default:
-                return null;
-        }
-    }
-
-    const uploadCover=()=>{
-     launchImageLibrary({},(res)=>{
-          if (res.didCancel) {
-              console.log("User Cenceled Process");
-          } else if(res.errorCode==='camera_unavailable') {
-              console.log('Camera Not Available');
-          }else if(res.errorCode==='others') {
-              console.log("Somwthing wrong");
-          }else if(res.errorCode==='permission'){
-            console.log("Don't have permissions");
-          }else if(res.errorMessage){
-              console.log('THis is the error messags');
-          }else{
-              console.log(res);
-          }
-        })
-    }
-
-
-    return (
-        <View style={Styles.container}>
-            <Container >
-                <StepIndicator
-                    customStyles={customStyles}
-                    currentPosition={position}
-                    stepCount={3}
-                    labels={labels}
-                    onPress={(val)=>renderScreen(val)}
-                    direction='horizontal'
-
-              />
-                    
-                {/* <UploadStory/> */}
-
-                {/* <PagerView
-                    transitionStyle='scroll'
-                    onPageSelected={e=>setPosition(e.nativeEvent.position)}
-                    
-                >
-                        <UploadCover onNext={()=>setPosition(pre=>pre+1)}
-                        onUploadCover={()=>uploadCover()}
-                        />
-                        <UploadStory/>
-                
-                </PagerView> */}
-            </Container>
-        </View>
-    )
-}
-
-export default UploadBook
-
-const styles = StyleSheet.create({})
+  currentStepLabelColor: '#fe7013',
+};

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">NovelProject</string>
+    <string name="facebook_app_id">511397210207804</string>
+    <!-- <string name="facebook_app_id">475620579884123</string> -->
+    <!--  -->
+    <!-- <string name="server_client_id">AIzaSyCSI26tsOucPaTht6kcFMQKPTqakR_YDxQ</string> -->
 </resources>
